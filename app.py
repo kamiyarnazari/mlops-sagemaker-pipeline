@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 import os
-
 import aws_cdk as cdk
-
-from mlops_cdk.mlops_cdk_stack import MlopsCdkStack
+from pipeline_stack import MLOpsPipelineStack
 
 env = cdk.Environment(
     account=os.getenv("CDK_DEFAULT_ACCOUNT"),
@@ -11,5 +9,5 @@ env = cdk.Environment(
 )
 
 app = cdk.App()
-MlopsCdkStack(app, "MlopsCdkStack", env=env)
+MLOpsPipelineStack(app, "MLOpsPipelineStack", env=env)
 app.synth()

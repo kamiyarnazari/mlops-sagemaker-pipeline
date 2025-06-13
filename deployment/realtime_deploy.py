@@ -3,8 +3,10 @@ import sagemaker.session
 from sagemaker.sklearn.model import SKLearnModel
 import os
 
+
+
 model_uri = "s3://sagemaker-us-east-1-906929958324/rf-model-train-2025-06-11-22-10-48/output/model.tar.gz"
-role = "arn:aws:iam::906929958324:role/MlopsCdkStack-SageMakerExecutionRole7843F3B8-GPaAgARZgBFB"
+role = os.environ["SAGEMAKER_EXECUTION_ROLE_ARN"]
 entry_point = "deployment/inference.py"
 
 # Initilize session
